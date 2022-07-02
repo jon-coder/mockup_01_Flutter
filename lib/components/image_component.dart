@@ -10,59 +10,64 @@ class ImageComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double mqw = MediaQuery.of(context).size.width;
-    final double mqh = MediaQuery.of(context).size.height;
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Positioned(
-          left: mqw * .33,
-          top: mqh * .205,
-          child: const SizedBox(
-            height: 28,
-            width: 28,
-            child: CustomPaint(
-              painter: CirclePainter(color: AppColors.purpleColors),
-            ),
-          ),
-        ),
-        Positioned(
-          left: mqw * .33,
-          top: mqh * .28,
-          child: const SizedBox(
-            height: 56,
-            width: 56,
-            child: Quadrant(
-              color: AppColors.purpleColors,
-              circleAlignment: CircleAlignment.topRight,
-            ),
-          ),
-        ),
-        Positioned(
-          left: mqw * .49,
-          top: mqh * .205,
-          child: Column(
-            children: const [
-              SizedBox(
-                height: 58,
-                width: 58,
-                child: Quadrant(
-                  color: AppColors.purpleColors,
-                  circleAlignment: CircleAlignment.bottomLeft,
+    final size = MediaQuery.of(context).size;
+
+    return SizedBox(
+      height: 300,
+      width: 300,
+      child: Align(
+        child: Stack(
+          children: [
+            Positioned(
+              left: size.width * .20,
+              top: size.height * .205,
+              child: const SizedBox(
+                height: 28,
+                width: 28,
+                child: CustomPaint(
+                  painter: CirclePainter(color: AppColors.purpleColors),
                 ),
               ),
-              SizedBox(
-                height: 58,
-                width: 58,
+            ),
+            Positioned(
+              left: size.width * .20,
+              top: size.height * .28,
+              child: const SizedBox(
+                height: 56,
+                width: 56,
                 child: Quadrant(
                   color: AppColors.purpleColors,
                   circleAlignment: CircleAlignment.topRight,
                 ),
               ),
-            ],
-          ),
+            ),
+            Positioned(
+              left: size.width * .37,
+              top: size.height * .21,
+              child: Column(
+                children: const [
+                  SizedBox(
+                    height: 58,
+                    width: 58,
+                    child: Quadrant(
+                      color: AppColors.purpleColors,
+                      circleAlignment: CircleAlignment.bottomLeft,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 58,
+                    width: 58,
+                    child: Quadrant(
+                      color: AppColors.purpleColors,
+                      circleAlignment: CircleAlignment.topRight,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
